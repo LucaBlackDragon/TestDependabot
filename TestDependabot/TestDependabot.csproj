@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\.github\dependabot.yml" Link="dependabot.yml" />
     <None Include="..\README.md" Link="README.md" />
   </ItemGroup>
 
