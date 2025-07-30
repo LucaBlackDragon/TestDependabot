@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "TestDependabot": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker",
+      "commandLineArgs": "test.json"
+    }
+  }
+}
