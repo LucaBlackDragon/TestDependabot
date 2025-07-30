@@ -20,8 +20,17 @@ if (!File.Exists(path))
 try
 {
     string jsonContent = await File.ReadAllTextAsync(path);
-    System.Text.Json.JsonSerializer.Deserialize<object>(jsonContent);
-    Console.WriteLine("JSON file parsed successfully.");
+    try
+    {
+        Newtonsoft.Json.JsonSerializer.CreateDefault().Deserialize(
+            new Newtonsoft.Json.JsonTextReader(new StringReader(jsonContent)));
+        Console.WriteLine("JSON file parsed successfully with Newtonsoft.Json.");
+    }
+    catch
+    {
+        System.Text.Json.JsonSerializer.Deserialize<object>(jsonContent);
+        Console.WriteLine("JSON file parsed successfully with System.Text.Json.JsonSerializer.");
+    }
 }
 catch (System.Text.Json.JsonException ex)
 {
